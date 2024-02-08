@@ -1,30 +1,36 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Next Level Week - Frontend Notes Project
 
-Currently, two official plugins are available:
+This project was developed during the 14th edition of Next Level Week, an event promoted by Rocketseat, focused on practical and challenging programming. The chosen track was ReactJS, ideal for those looking to enhance their front-end skills and create interactive web interfaces.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## About the Project
 
-## Expanding the ESLint configuration
+The goal of this project is to create a frontend for notes, offering the ability to save written notes and audio notes that will be converted into text. It's an application aimed at providing an intuitive and efficient experience for managing your notes in a simple and organized way.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Screenshot
+<img src="https://i.imgur.com/DpLHgZh.gif" alt="Frontend Notes Project">
 
-- Configure the top-level `parserOptions` property like this:
+## Technologies Used
+- React
+- Tailwind CSS
+- ViteJS
+- Sonner
+- Radix
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## How to Use
+1. Clone this repository.
+2. Install dependencies using npm install.
+3. Run the project with npm start.
+4. Access the application in your web browser.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Contributing
+
+Contributions are welcome! If you'd like to contribute to this project, feel free to fork the repository and submit a pull request with your changes.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+
+## Acknowledgments
+We would like to thank Rocketseat for providing [Next Level Week](https://www.rocketseat.com.br/eventos/nlw) and such enriching learning opportunities for the development community.
