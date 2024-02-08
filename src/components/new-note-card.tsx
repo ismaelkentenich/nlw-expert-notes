@@ -7,7 +7,7 @@ interface NewNoteCardProps {
   onNoteCreated: (content: string) => void;
 }
 
-let speechRecognition: SpeechRecognition | null = null
+let speechRecognition: SpeechRecognition | null = null;
 
 export function NewNoteCard({ onNoteCreated }: NewNoteCardProps) {
   const [shouldShowOnboarding, setShouldShowOnboarding] = useState(true);
@@ -68,11 +68,11 @@ export function NewNoteCard({ onNoteCreated }: NewNoteCardProps) {
 
     speechRecognition.onresult = (event) => {
       // console.log(event.results);
-      const transcription = Array.from(event.results).reduce((text, result) =>{
-        return text.concat(result[0].transcript)
-      }, '')
+      const transcription = Array.from(event.results).reduce((text, result) => {
+        return text.concat(result[0].transcript);
+      }, "");
 
-      setContent(transcription)
+      setContent(transcription);
     };
 
     speechRecognition.onerror = (event) => {
@@ -85,8 +85,8 @@ export function NewNoteCard({ onNoteCreated }: NewNoteCardProps) {
   function handleStopRecording() {
     setIsRecording(false);
 
-    if(speechRecognition != null) {
-      speechRecognition.stop()
+    if (speechRecognition != null) {
+      speechRecognition.stop();
     }
   }
 
@@ -109,8 +109,8 @@ export function NewNoteCard({ onNoteCreated }: NewNoteCardProps) {
         {/* A layer that covers the inert portion of the view when the dialog is open. */}
         <Dialog.Overlay className="inset-0 fixed bg-black/50" />
         <Dialog.DialogContent
-          className="fixed overflow-hidden left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 
-          max-w-[640px] w-full h-[60vh] bg-slate-700 rounded-md flex flex-col outline-none"
+          className="fixed overflow-hidden inset-0 md:inset-auto md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 
+          md:max-w-[640px] md:w-full h-[60vh] bg-slate-700 md:rounded-md flex flex-col outline-none"
         >
           <Dialog.Close className="absolute right-0 top-0 bg-slate-800 p-1.5 text-slate-400 hover:text-slate-100">
             <X className="size-5" />
