@@ -1,34 +1,37 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
 import { ChangeEvent, FormEvent, useState } from "react";
-import { toast } from 'sonner'
+import { toast } from "sonner";
 
 interface NewNoteCardProps {
-  onNoteCreated: (content:string) => void
+  onNoteCreated: (content: string) => void;
 }
 
-export function NewNoteCard({onNoteCreated}: NewNoteCardProps) {
+export function NewNoteCard({ onNoteCreated }: NewNoteCardProps) {
   const [shouldShowOnboarding, setShouldShowOnboarding] = useState(true);
-  const [content, setContent] = useState('');
+  const [content, setContent] = useState("");
 
   function handleStartEditor() {
     setShouldShowOnboarding(false);
   }
 
-  function handleContentChanged(event: ChangeEvent<HTMLTextAreaElement>){
-    setContent(event.target.value)
+  function handleContentChanged(event: ChangeEvent<HTMLTextAreaElement>) {
+    setContent(event.target.value);
     // console.log(event.target.value)
-    if (event.target.value === '') {
-      setShouldShowOnboarding(true)
+    if (event.target.value === "") {
+      setShouldShowOnboarding(true);
     }
   }
 
-  function handleSaveNote(event: FormEvent){
-    event.preventDefault()
-    onNoteCreated(content)
+  function handleSaveNote(event: FormEvent) {
+    event.preventDefault();
+    onNoteCreated(content);
     // console.log(content)
-    
-    toast.success('Nota criada com sucesso!')
+
+    setContent("");
+    setShouldShowOnboarding(true);
+
+    toast.success("Nota criada com sucesso!");
   }
 
   return (
@@ -78,10 +81,12 @@ export function NewNoteCard({onNoteCreated}: NewNoteCardProps) {
                   .
                 </p>
               ) : (
-                <textarea 
-                  autoFocus 
-                  className="text-sm leading-6 text-slate-400 bg-transparent resize-none flex-1 outline-none" 
-                  onChange={handleContentChanged}/>
+                <textarea
+                  autoFocus
+                  className="text-sm leading-6 text-slate-400 bg-transparent resize-none flex-1 outline-none"
+                  onChange={handleContentChanged}
+                  value={content} /** refletindo o valor da variavel content */
+                />
               )}
             </div>
 
@@ -92,7 +97,6 @@ export function NewNoteCard({onNoteCreated}: NewNoteCardProps) {
               Salvar nota
             </button>
           </form>
-
         </Dialog.DialogContent>
       </Dialog.Portal>
     </Dialog.Root>
