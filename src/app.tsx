@@ -3,21 +3,23 @@ import logo from "./assets/logo-nlw-expert.svg";
 import { NewNoteCard } from "./components/new-note-card";
 import { NoteCard } from "./components/note-card";
 
+interface Note {
+  id: string;
+  date: Date;
+  content: string;
+}
 
 export function App() {
-  const [notes, setNotes] = useState([
-    { id: 1, date: new Date(), content: 'Hello World!' },
-    { id: 2, date: new Date(), content: 'Nota 2' },
-  ])
+  const [notes, setNotes] = useState<Note[]>([]);
 
   function onNoteCreated(content: string) {
     const newNote = {
-      id: Math.random(),
+      id: crypto.randomUUID(),
       date: new Date(),
       content,
-    }
+    };
 
-    setNotes([newNote, ...notes])
+    setNotes([newNote, ...notes]);
   }
 
   return (
@@ -36,12 +38,11 @@ export function App() {
       <div className="h-px bg-slate-700" />
 
       <div className="grid grid-cols-3 gap-6 auto-rows-[250px]">
-        <NewNoteCard onNoteCreated={onNoteCreated}/>
-        
-        {notes.map(note => {
-          return <NoteCard key={note.id} note={note}/>
-        })}
+        <NewNoteCard onNoteCreated={onNoteCreated} />
 
+        {notes.map((note) => {
+          return <NoteCard key={note.id} note={note} />;
+        })}
       </div>
     </div>
   );
